@@ -152,3 +152,23 @@ The basic building block is an **augmented LLM**.
     ```
 
 ### Agents
+1. Discussion
+2. Execution - plan and operation independently
+3. Check-up
+
+- agents require environment feedback - running tools, executing code.
+- better documentation and tool design - better output
+- When
+    - open ended problems - don't know subtasks, don't know the path
+```mermaid
+    graph TB
+        human([Human]) <.-> llm[LLM] -->|action| env([Environment])
+        llm .-> stop[Stop]
+        env -->|feedback| llm
+
+        classDef io fill:red
+        class human,env io
+
+        style llm fill:green
+        style stop fill:purple
+```
