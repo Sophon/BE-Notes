@@ -15,7 +15,7 @@ DROP DATABASE my_db;
 ```
 
 ```SQL
-USE DATABASE my_db;
+USE my_db;
 ```
 
 ### Data types
@@ -42,13 +42,13 @@ USE DATABASE my_db;
 ### Tables
 
 ```SQL
-SHOW TABLES myTable;
+SHOW TABLES;
 ```
 
 ```SQL
 CREATE TABLE myTable (
     name VARCHAR(50),
-    age INT,
+    age INT
 );
 ```
 
@@ -62,4 +62,3 @@ SHOW COLUMNS FROM myTable;
 ```SQL
 DROP TABLE myTable;
 ```
-
