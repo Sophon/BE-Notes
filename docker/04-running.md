@@ -15,3 +15,59 @@
 
 ### Lifecycle
 
+1. `docker run <image>`
+  - in actuality, it's `docker create` + `docker start`
+2. container running
+   - `logs`, `inspect`, `exec`
+   - lifecycle commands:
+     1. `pause <cId>` - keep memory contents; `unpause`
+     2. `stop <cId>` - gracefully stops, clear memory
+     3. `kill <cId>` - forcefully stops, `SIGKILL`
+     4. `exit <num>` - number for error, `0` otherwise
+3. container stopped
+   - can be seen via `ps -a` 
+   - `logs`, `inspect`
+   - `rm` - remove the container
+
+```mermaid
+graph TD
+  subgraph nonexistent["non existent"]
+    run["docker run"]
+    create["docker create"]
+    start_n["docker start"]
+    exec["docker exec"]
+  end
+
+  subgraph running["container running"]
+    logs["docker logs"]
+    inspect["docker inspect"]
+  end
+
+  subgraph stopped["container stopped"]
+    logs_s["docker logs"]
+    inspect_s["docker inspect"]
+  end
+
+  subgraph lifecycle
+    pause["docker pause"]
+    stop["docker stop"]
+    kill["docker kill"]
+    exit["docker exit"]
+  end
+
+  unpause["docker unpause"]
+  start["docker start"]
+  rm["docker rm"]
+
+  run -->|"1."| create
+  run -->|"2."| start_n
+  run -->|"3."| running
+
+  running --> pause --> unpause --> running
+  running --> stop --> stopped
+  running --> kill --> stopped
+  running --> exit --> stopped
+
+  stopped --> start --> running
+  stopped --> rm
+```
