@@ -40,3 +40,14 @@ FROM cities;
 
 - math operators:
     - `+`, `-`, `*`, `/`, `^`, `|/` (square root), `@` (abs), `%`
+
+### Strings
+
+- `LOWER()` or `UPPER()`
+- `LENGTH()`
+
+```sql
+-- Tokyo, Japan
+SELECT UPPER(CONCAT(name, ', ', country)) AS location
+FROM cities;
+```
