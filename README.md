@@ -19,8 +19,11 @@
 
 ### Planned
 - 📖 [A Philosophy of Software Design](https://www.amazon.com/dp/173210221X)
+- 📖 [The Data Model Resource Book](https://www.amazon.de/-/en/gp/product/0471380237)
 - 📖 [Designing Data-Intensive Applications](https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1098119061)
 - 📖 [Software Architecture: The Hard Parts](https://www.amazon.com/Software-Architecture-Trade-Off-Distributed-Architectures/dp/1492086894)
+- 📖 [Distributed Systems](https://www.amazon.de/-/en/Distributed-Systems-Maarten-van-Steen/dp/9081540637)
+- 📖 [Database Internal](https://www.amazon.de/-/en/Database-Internals-Deep-Distributed-Systems/dp/1492040347)
 
 ### Projects
 
