@@ -3,12 +3,13 @@ graph TD
         run["docker run"]
         create["docker create"]
         start_n["docker start"]
-        exec["docker exec"]
+        exec_n["docker exec"]
     end
 
     subgraph running["container running"]
         logs["docker logs"]
         inspect["docker inspect"]
+        exec["docker exec"]
     end
     
     subgraph stopped["container stopped"]
