@@ -12,6 +12,7 @@
 - 📖 [Get Your Hands Dirty on Clean Architecture](https://www.amazon.com/Hands-Dirty-Clean-Architecture-hands/dp/1839211962)
 - <img src="https://www.google.com/s2/favicons?domain=learn.grafana.com&sz=32" height="14" width="14"> [Grafana fundamentals](https://learn.grafana.com/path/grafana-fundamentals)
 - 📖 [Advanced Kotlin](https://kt.academy/book/advanced_kotlin)
+- 📖 [Creating Software with Modern Diagramming Techniques](https://www.amazon.com/dp/1680509837)
 
 ### Finished 
 - 📖 [Kotlin Coroutines Deep Dive](https://kt.academy/book/coroutines)
