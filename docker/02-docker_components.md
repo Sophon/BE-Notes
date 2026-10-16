@@ -13,7 +13,10 @@
 3. image registry
   - available for download to create containers
 
-Images can be thought of as recipes while containers can be thought of as an instance of an image that's running.
+
+**Images** are read-only self-contained templates that has everything the app needs to run.
+
+**Containers** are running instances of images.
 
 ### Running a container
 
