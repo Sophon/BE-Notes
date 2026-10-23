@@ -4,6 +4,8 @@
 
 **Containers** are running instances of images.
 
+Containers are very similar to a process. In fact, `ps` displays them.
+
 ## Anatomy
 
 1. Base layer - a Linux distro, like Alpine (minimal) or Ubuntu (more complex)
