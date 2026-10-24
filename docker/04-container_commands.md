@@ -1,18 +1,4 @@
-# CONTAINERS
-
-**Images** are read-only self-contained templates that has everything the app needs to run.
-
-**Containers** are running instances of images.
-
-Containers are very similar to a process. In fact, `ps` displays them.
-
-## Anatomy
-
-1. Base layer - a Linux distro, like Alpine (minimal) or Ubuntu (more complex)
-2. Runtime environment - whatever the app needs, like Python or Node.js
-3. Libraries, dependencies - external code the app relies on
-4. Application code - our app code or binaries
-5. Configuration - Docker config like environment
+# CONTAINER COMMANDS
 
 ## Basic commands
 
@@ -98,3 +84,25 @@ graph TD
     stopped --> start --> running
     stopped --> rm
 ```
+
+## Process monitoring
+
+- `docker container top nginx` - process list of a container
+- `docker container inspect nginx` - config of a container
+- `docker container stats` 
+  - performance stats for **all** containers
+  - or stats for a container if provided a name
+
+## Shell
+
+- `docker container run -it` 
+  - `-it` = interactive, tty
+  - start a new container **interactively**
+  - lifecycle tied to the command, so exiting the command stops the container
+  - `docker container run -it --name proxy nginx bash`
+- `docker container exec -it` 
+  - run a command inside a container
+  - creates a separate process, so exiting the command does **not** stop the container
+
+## Networking
+
