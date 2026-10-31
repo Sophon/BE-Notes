@@ -1,41 +1,5 @@
-graph TD
-    subgraph nonexistent["Non existent"]
-        run["docker run"]
-        create["docker create"]
-        start_n["docker start"]
-        exec_n["docker exec"]
-    end
-
-    subgraph running["container running"]
-        logs["docker logs"]
-        inspect["docker inspect"]
-        exec["docker exec"]
-    end
-    
-    subgraph stopped["container stopped"]
-        logs_s["docker logs"]
-        inspect_s["docker inspect"]
-    end
-
-    subgraph lifecycle
-        pause["docker pause"]
-        stop["docker stop"]
-        kill["docker kill"]
-        exit["docker exit"]
-    end
-
-    unpause["docker unpause"]
-    start["docker start"]
-    rm["docker rm"]
-
-    run -->|"1."| create
-    run -->|"2."| start_n
-    run -->|"3."| running
-
-    running --> pause --> unpause --> running
-    running --> stop --> stopped
-    running --> kill --> stopped
-    running --> exit --> stopped
-
-    stopped --> start --> running
-    stopped --> rm
+graph LR
+    association["Card association"] --> |"1. authorization request"| processor["Card processor"]
+    processor --> |"2. authorization request"| issuer["Issuer"]
+    issuer -.-> |"3. timeout ❌"| processor
+    processor --> |"4. stand-in"| association
