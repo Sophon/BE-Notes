@@ -15,8 +15,8 @@ There are three:
    - `Title -- Genre` or `Teacher -- Student`
    - directional: `Viewer --> Title` meaning viewer holds reference to the title, not the other way around
 2. aggregation
-    - a child can exist without the parent
-    - parent *does not* own the child
+    - a child can *meaningfully* exist without the parent (the child has meaning outside the parent)
+    - parent owns the child
     - `Title o-- Actor` or `Class o-- Teacher`
 3. composition
    - child cannot exist without the parent
