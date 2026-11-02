@@ -1,20 +1,26 @@
 ---
-title: Streamy
+title: User Sign-up Flow
 ---
-classDiagram
-    Title "1..*" -- "1..*" Genre: is associated with
-    Title "1..*" *-- "0..*" Season: has
-    Title "1" *-- "0..*" Review: has
-    Title "0..*" o-- "1..*" Actor: features
 
-    Show --|> Title: implements
-    Film --|> Title: implements
-    Short --|> Title: implements
-    link Show "https://www.netflix.com/cz-en/title/80234304" _blank
+sequenceDiagram
+autonumber
+    actor browser as Browser
+    participant signup as Sign-Up Service
+    participant userService as User Service
+    participant kafka as Kafka
 
-    Viewer "0..*" --> "0..*" Title: watches
+    browser ->>+ signup: GET /sign_up
+    signup -->>- browser: 200 OK (HTML page)
 
-    Season "1" *-- "0..*" Episode: contains
-    Season "1" *-- "0..*" Review: has
+    browser ->>+ signup: POST /sign_up
+    signup -->> signup: Validate input
 
-    Episode "1" *-- "0..*" Review: has
+    alt invalid input
+        signup -->> browser: Error
+    else valid input
+        signup ->>+ userService: POST /users
+        userService --) kafka: User Created Event published
+        Note left of kafka: other services take action based on this event
+        userService -->>- signup: 201 Created (User)
+        signup -->>- browser: 301 Redirect (Login page)
+    end
