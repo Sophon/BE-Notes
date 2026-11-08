@@ -52,3 +52,19 @@ SELECT unnest([5, 6, 6, 7, 7, 9]);
 
 
 ### EXCEPT
+
+Rows of A except rows of B.
+
+In other words, `setOf(A).filterNot { it in B }`.
+
+```sql
+(SELECT *
+ FROM products
+ ORDER BY price DESC
+ LIMIT 4)
+EXCEPT
+(SELECT *
+ FROM products
+ ORDER BY price / weight DESC
+ LIMIT 4);
+```
