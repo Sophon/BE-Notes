@@ -106,3 +106,18 @@ graph TD
 
 ## Networking
 
+- batteries included but removable
+  - usable defaults but customizable
+- when we connect to a container, we're actually connecting to a virtual network (called *bridge*)
+- each virtual network routes via the NAT firewall
+- all containers within the virtual network can connect to each other, even without `-p`
+- good practice is to create a virtual network per app
+  - like one app with SQL and Node app
+  - another one for a different Mongo DB and a different Node app
+
+### Commands
+
+- port
+  - set: `-p` followed by `host:container`
+  - read: `docker container port nameOfContainer`
+  - while containers within the bridge can talk to each other, no traffic will reach a container unless we set its port
